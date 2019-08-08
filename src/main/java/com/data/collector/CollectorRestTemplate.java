@@ -43,7 +43,7 @@ public class CollectorRestTemplate {
             try {
                 parse = jsonParser.parse(jsonSales, JSONArray.class);
             } catch (ParseException e) {
-                logger.info(e.getMessage(), DateTimeUtil.DATE_TME_FORMATTER.format(LocalDateTime.now()));
+                logger.info(e.getMessage(), DateTimeUtil.DATE_TIME_FORMATTER.format(LocalDateTime.now()));
             }
 
             for (int i = 0; i < parse.size(); i++) {

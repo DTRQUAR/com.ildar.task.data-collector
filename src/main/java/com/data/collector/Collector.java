@@ -49,7 +49,7 @@ public class Collector {
     @Transactional(isolation = Isolation.SERIALIZABLE)
     @Scheduled(fixedRate = 2000)
     protected void collectAllSaleStatistic() {
-        logger.info("Start collect Publishers Statistic: {}", DateTimeUtil.DATE_TME_FORMATTER.format(LocalDateTime.now()));
+        logger.info("Start collect Publishers Statistic: {}", DateTimeUtil.DATE_TIME_FORMATTER.format(LocalDateTime.now()));
 
         List<Publisher> publishers = publisherRepository.findAll();
 
@@ -70,7 +70,7 @@ public class Collector {
      * @param saleDto объект полученный у Advertiser'а
      *                и хранящий информацию о Sale
      */
-    private void saveSaleDto(SaleDto saleDto) {
+    public void saveSaleDto(SaleDto saleDto) {
         Offer offer = offerRepository.findByNameAndNumber(saleDto.getOfferName(), saleDto.getOfferNumber());
         Publisher publisher = publisherRepository.findByName(saleDto.getPublisherName());
         Sale foundSale
