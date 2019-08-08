@@ -7,6 +7,10 @@ import javax.persistence.Table;
 /**
  * Ildar Makhmutov
  * 08.08.2019.
+ * <p>
+ * Объект хранящий сведения о названиях параметров Response'а
+ * который получается при вызове REST API Advertiser'а
+ * для получения статистики Sale'ов
  */
 @Entity
 @Table(name = "resp_detail")

@@ -25,6 +25,8 @@ import java.util.Set;
  * <p>
  * Генератор Advertiser'ов
  * Имитирует регистрацию в Партнерской сети Advertiser'ов и их Offer'ов
+ * Также случайно проставляет Advertiser'у
+ * стандратный REST API или кастомный
  */
 @Component
 public class AdvertiserGeneratorImpl implements AdvertiserGenerator {

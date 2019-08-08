@@ -26,6 +26,7 @@ import java.util.concurrent.ConcurrentMap;
  * <p>
  * Генерирует Sale'ы для Offer'ов Advertiser'ов
  * Также привязывает к Sale'ам случайных Publisher'ов
+ * При генерации Sale'ов учитываются новые Advertiser'ы и их Offer'ы
  */
 @Component
 public class SalesGeneratorImpl implements SalesGenerator {
