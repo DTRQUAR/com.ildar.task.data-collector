@@ -20,7 +20,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
 /**
  * * Ildar Makhmutov
  * * 08.08.2019.
@@ -76,9 +75,9 @@ public class AdvertiserGenerator {
     }
 
     /**
-     * Получение коллекции из случайных Publisher'ов
+     * Получение коллекции случайных Publisher'ов
      *
-     * @return коллекция из случайных Publisher'ов
+     * @return коллекция случайных Publisher'ов
      */
     private Set<Publisher> getRandomPublishers() {
         List<Publisher> publishers = publisherRepository.findAll();

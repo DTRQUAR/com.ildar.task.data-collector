@@ -73,4 +73,5 @@ public class StatisticServiceImpl implements StatisticService {
 
         return statisticsForPublisher;
     }
+
 }

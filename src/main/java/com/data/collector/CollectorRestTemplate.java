@@ -23,9 +23,9 @@ import java.util.List;
  * 08.08.2019.
  */
 @Component
-public class MockRestTemplate {
+public class CollectorRestTemplate {
 
-    private static final Logger logger = LoggerFactory.getLogger(MockRestTemplate.class);
+    private static final Logger logger = LoggerFactory.getLogger(CollectorRestTemplate.class);
 
     @Autowired
     private AdvertiserRepository advertiserRepository;
@@ -61,4 +61,5 @@ public class MockRestTemplate {
 
         return saleDtos;
     }
+
 }

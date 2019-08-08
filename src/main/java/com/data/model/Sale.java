@@ -85,4 +85,5 @@ public class Sale extends BaseEntity {
                 ", publisher=" + publisher.getName() +
                 '}';
     }
+
 }

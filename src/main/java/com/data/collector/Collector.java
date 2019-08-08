@@ -40,7 +40,7 @@ public class Collector {
     private SaleRepository saleRepository;
 
     @Autowired
-    private MockRestTemplate restTemplate;
+    private CollectorRestTemplate restTemplate;
 
     /**
      * Получение статистики продаж по всем Publisher'ам

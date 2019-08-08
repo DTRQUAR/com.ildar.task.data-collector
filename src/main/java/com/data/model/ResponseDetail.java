@@ -78,4 +78,5 @@ public class ResponseDetail extends NamedEntity {
                 ", publisherName='" + publisherName + '\'' +
                 '}';
     }
+
 }

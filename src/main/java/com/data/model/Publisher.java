@@ -13,7 +13,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "publishers")
-public class Publisher extends NamedEntity{
+public class Publisher extends NamedEntity {
 
     @ManyToMany(mappedBy = "publishers", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private Set<Advertiser> advertisers;
@@ -33,4 +33,5 @@ public class Publisher extends NamedEntity{
                 ", name=" + name +
                 '}';
     }
+
 }

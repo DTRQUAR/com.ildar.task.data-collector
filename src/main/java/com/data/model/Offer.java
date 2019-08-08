@@ -96,4 +96,5 @@ public class Offer extends NamedEntity {
         result = 31 * result + (price != null ? price.hashCode() : 0);
         return result;
     }
+
 }
