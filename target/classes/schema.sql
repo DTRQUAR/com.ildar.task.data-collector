@@ -3,16 +3,33 @@ DROP TABLE IF EXISTS sales;
 DROP TABLE IF EXISTS offers;
 DROP TABLE IF EXISTS advertisers;
 DROP TABLE IF EXISTS publishers;
+DROP TABLE IF EXISTS resp_detail;
 DROP SEQUENCE IF EXISTS global_seq;
 
 CREATE SEQUENCE global_seq START 100000;
 
+CREATE TABLE resp_detail
+(
+    id                 INTEGER DEFAULT nextval('global_seq'),
+    name               VARCHAR NOT NULL UNIQUE,
+    transaction_number VARCHAR NOT NULL,
+    date_time          VARCHAR NOT NULL,
+    offer_name         VARCHAR NOT NULL,
+    offer_number       VARCHAR NOT NULL,
+    publisher_name     VARCHAR NOT NULL,
+    UNIQUE (name, transaction_number, date_time,
+            offer_name, offer_number, publisher_name),
+    PRIMARY KEY (id)
+);
+
 CREATE TABLE advertisers
 (
-    id            INTEGER DEFAULT nextval('global_seq'),
-    name          VARCHAR  NOT NULL UNIQUE,
-    statistic_url VARCHAR  NOT NULL UNIQUE,
-    commission    SMALLINT NOT NULL CHECK (commission >= 0 AND commission <= 100),
+    id             INTEGER DEFAULT nextval('global_seq'),
+    name           VARCHAR  NOT NULL UNIQUE,
+    statistic_url  VARCHAR  NOT NULL UNIQUE,
+    commission     SMALLINT NOT NULL CHECK (commission >= 0 AND commission <= 100),
+    resp_detail_id INTEGER  NOT NULL,
+    FOREIGN KEY (resp_detail_id) REFERENCES resp_detail (id) ON DELETE RESTRICT,
     PRIMARY KEY (id)
 );
 
