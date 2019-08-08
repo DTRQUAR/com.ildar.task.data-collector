@@ -1,4 +1,4 @@
-package com.data.collector;
+package com.data.collector.dto;
 
 /**
  * Ildar Makhmutov

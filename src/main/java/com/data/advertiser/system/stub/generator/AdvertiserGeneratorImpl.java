@@ -1,4 +1,4 @@
-package com.data.advertiser.system.stub;
+package com.data.advertiser.system.stub.generator;
 
 import com.data.model.Advertiser;
 import com.data.model.Offer;
@@ -11,7 +11,6 @@ import com.data.util.CollectionsUtil;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,7 +27,7 @@ import java.util.Set;
  * Имитирует регистрацию в Партнерской сети Advertiser'ов и их Offer'ов
  */
 @Component
-public class AdvertiserGenerator {
+public class AdvertiserGeneratorImpl implements AdvertiserGenerator{
 
     private static final int MIN_COMMISSION = 2;
     private static final int MAX_COMMISSION = 40;
@@ -48,7 +47,6 @@ public class AdvertiserGenerator {
      * Также к Advertiser'у привязывается случайных Publisher
      */
     @Transactional
-    @Scheduled(fixedDelay = 2000)
     public void generateAdvertiser() {
         Advertiser advertiser = new Advertiser();
 

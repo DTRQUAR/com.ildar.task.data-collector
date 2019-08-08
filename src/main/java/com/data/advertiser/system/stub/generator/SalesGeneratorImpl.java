@@ -1,4 +1,4 @@
-package com.data.advertiser.system.stub;
+package com.data.advertiser.system.stub.generator;
 
 import com.data.model.Advertiser;
 import com.data.model.Offer;
@@ -11,7 +11,6 @@ import net.minidev.json.JSONArray;
 import net.minidev.json.JSONObject;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,7 +24,7 @@ import java.util.concurrent.ConcurrentMap;
  * 08.08.2019.
  */
 @Component
-public class SalesGenerator {
+public class SalesGeneratorImpl implements SalesGenerator{
 
     @Autowired
     private OfferRepository offerRepository;
@@ -41,7 +40,6 @@ public class SalesGenerator {
     }
 
     @Transactional(isolation = Isolation.SERIALIZABLE)
-    @Scheduled(fixedRate = 3000)
     public void generateSales() {
         String randomTransactionNumber = RandomStringUtils.randomNumeric(11);
         String randomDateTime = DateTimeUtil.toString(LocalDateTime.now());

@@ -1,6 +1,7 @@
-package com.data.collector;
+package com.data.collector.template;
 
-import com.data.advertiser.system.stub.SalesGenerator;
+import com.data.advertiser.system.stub.generator.SalesGeneratorImpl;
+import com.data.collector.dto.SaleDto;
 import com.data.model.Advertiser;
 import com.data.model.ResponseDetail;
 import com.data.repository.AdvertiserRepository;
@@ -23,9 +24,9 @@ import java.util.List;
  * 08.08.2019.
  */
 @Component
-public class CollectorRestTemplate {
+public class CollectorRestTemplateImpl implements CollectorRestTemplate {
 
-    private static final Logger logger = LoggerFactory.getLogger(CollectorRestTemplate.class);
+    private static final Logger logger = LoggerFactory.getLogger(CollectorRestTemplateImpl.class);
 
     @Autowired
     private AdvertiserRepository advertiserRepository;
@@ -33,7 +34,7 @@ public class CollectorRestTemplate {
     public List<SaleDto> getSaleStatistic(String statisticUrl, String publisherName) {
         List<SaleDto> saleDtos = new ArrayList<>();
 
-        String jsonSales = SalesGenerator.getSales(statisticUrl, publisherName);
+        String jsonSales = SalesGeneratorImpl.getSales(statisticUrl, publisherName);
         if (jsonSales != null) {
             Advertiser advertiser = advertiserRepository.findByStatisticUrl(statisticUrl);
             ResponseDetail responseDetail = advertiser.getResponseDetail();
