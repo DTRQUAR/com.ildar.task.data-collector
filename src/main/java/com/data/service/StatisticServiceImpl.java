@@ -16,6 +16,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * Ildar Makhmutov
+ * 08.08.2019.
+ */
 @Service
 public class StatisticServiceImpl implements StatisticService {
 

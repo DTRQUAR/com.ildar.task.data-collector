@@ -5,7 +5,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+/**
+ * Ildar Makhmutov
+ * 08.08.2019.
+ */
 public interface StatisticService {
 
     List<StatisticDto> getStatisticForAllPublishers();

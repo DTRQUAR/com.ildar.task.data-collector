@@ -20,6 +20,10 @@ import java.time.LocalDateTime;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+/**
+ * Ildar Makhmutov
+ * 08.08.2019.
+ */
 @Component
 public class SalesGenerator {
 

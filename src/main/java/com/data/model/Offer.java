@@ -12,9 +12,13 @@ import javax.persistence.Table;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Ildar Makhmutov
+ * 08.08.2019.
+ */
 @Entity
 @Table(name = "offers")
-public class Offer extends NamedEntity{
+public class Offer extends NamedEntity {
 
     @Column(name = "offer_number", nullable = false)
     private String number;

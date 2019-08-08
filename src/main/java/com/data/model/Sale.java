@@ -11,6 +11,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 
+/**
+ * Ildar Makhmutov
+ * 08.08.2019.
+ */
 @Entity
 @Table(name = "sales")
 public class Sale extends BaseEntity {

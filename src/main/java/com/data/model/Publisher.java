@@ -7,6 +7,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.util.Set;
 
+/**
+ * Ildar Makhmutov
+ * 08.08.2019.
+ */
 @Entity
 @Table(name = "publishers")
 public class Publisher extends NamedEntity{

@@ -2,6 +2,10 @@ package com.data.util;
 
 import java.util.Collection;
 
+/**
+ * Ildar Makhmutov
+ * 08.08.2019.
+ */
 public class CollectionsUtil {
 
     /**

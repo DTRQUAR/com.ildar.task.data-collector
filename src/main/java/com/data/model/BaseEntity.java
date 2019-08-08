@@ -9,6 +9,10 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.SequenceGenerator;
 import java.util.Objects;
 
+/**
+ * Ildar Makhmutov
+ * 08.08.2019.
+ */
 @MappedSuperclass
 @Access(AccessType.FIELD)
 public class BaseEntity {

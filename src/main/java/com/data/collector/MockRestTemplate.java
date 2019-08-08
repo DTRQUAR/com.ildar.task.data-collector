@@ -18,6 +18,10 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Ildar Makhmutov
+ * 08.08.2019.
+ */
 @Component
 public class MockRestTemplate {
 

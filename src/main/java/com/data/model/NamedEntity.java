@@ -3,6 +3,10 @@ package com.data.model;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+/**
+ * Ildar Makhmutov
+ * 08.08.2019.
+ */
 @MappedSuperclass
 public class NamedEntity extends BaseEntity {
 

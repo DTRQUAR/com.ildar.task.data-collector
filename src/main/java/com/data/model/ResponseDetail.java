@@ -4,6 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+/**
+ * Ildar Makhmutov
+ * 08.08.2019.
+ */
 @Entity
 @Table(name = "resp_detail")
 public class ResponseDetail extends NamedEntity {

@@ -20,7 +20,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+
 /**
+ * * Ildar Makhmutov
+ * * 08.08.2019.
+ * <p>
  * Генератор Advertiser'ов
  * Имитирует регистрацию в Партнерской сети Advertiser'ов и их Offer'ов
  */

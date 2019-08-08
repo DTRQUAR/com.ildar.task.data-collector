@@ -1,5 +1,9 @@
 package com.data.dto;
 
+/**
+ * Ildar Makhmutov
+ * 08.08.2019.
+ */
 public class StatisticDto {
 
     private String publisherName;

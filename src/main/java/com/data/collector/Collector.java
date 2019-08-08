@@ -21,6 +21,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Ildar Makhmutov
+ * 08.08.2019.
+ */
 @Component
 public class Collector {
 

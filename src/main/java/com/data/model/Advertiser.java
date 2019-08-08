@@ -14,6 +14,10 @@ import javax.persistence.Table;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Ildar Makhmutov
+ * 08.08.2019.
+ */
 @Entity
 @Table(name = "advertisers")
 public class Advertiser extends NamedEntity {
