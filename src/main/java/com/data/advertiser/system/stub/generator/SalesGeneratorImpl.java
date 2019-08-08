@@ -1,5 +1,6 @@
 package com.data.advertiser.system.stub.generator;
 
+import com.data.advertiser.system.stub.storage.SalesResponseStorage;
 import com.data.model.Advertiser;
 import com.data.model.Offer;
 import com.data.model.Publisher;
@@ -22,22 +23,15 @@ import java.util.concurrent.ConcurrentMap;
 /**
  * Ildar Makhmutov
  * 08.08.2019.
+ * <p>
+ * Генерирует Sale'ы для Offer'ов Advertiser'ов
+ * Также привязывает к Sale'ам случайных Publisher'ов
  */
 @Component
-public class SalesGeneratorImpl implements SalesGenerator{
+public class SalesGeneratorImpl implements SalesGenerator {
 
     @Autowired
     private OfferRepository offerRepository;
-
-    private static ConcurrentMap<String, ConcurrentMap<String, JSONArray>> jsonSales = new ConcurrentHashMap<>();
-
-    public static String getSales(String statisticUrl, String publisherName) {
-        ConcurrentMap<String, JSONArray> advertiserAllPublishersSales = jsonSales.get(statisticUrl);
-        if (advertiserAllPublishersSales == null) return null;
-        JSONArray publisherSales = advertiserAllPublishersSales.get(publisherName);
-        if (publisherSales == null) return null;
-        return publisherSales.toString();
-    }
 
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public void generateSales() {
@@ -62,14 +56,14 @@ public class SalesGeneratorImpl implements SalesGenerator{
         jsonSale.put(responseDetail.getOfferNumberName(), randomOfferNumber);
         jsonSale.put(responseDetail.getPublisherName(), randomPublisherName);
 
-        ConcurrentMap<String, JSONArray> publisherSales = jsonSales.get(statisticUrl);
+        ConcurrentMap<String, JSONArray> publisherSales = SalesResponseStorage.getJsonSales().get(statisticUrl);
         if (publisherSales == null) {
             publisherSales = new ConcurrentHashMap<>();
             JSONArray jsonPublisherSales = new JSONArray();
             jsonPublisherSales.add(jsonSale);
             publisherSales.put(randomPublisherName, jsonPublisherSales);
 
-            jsonSales.put(statisticUrl, publisherSales);
+            SalesResponseStorage.getJsonSales().put(statisticUrl, publisherSales);
         } else {
             JSONArray jsonPublisherSales = publisherSales.get(randomPublisherName);
             if (jsonPublisherSales == null) {

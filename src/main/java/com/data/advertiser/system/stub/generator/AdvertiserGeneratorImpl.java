@@ -20,14 +20,14 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * * Ildar Makhmutov
- * * 08.08.2019.
+ * Ildar Makhmutov
+ * 8.08.2019.
  * <p>
  * Генератор Advertiser'ов
  * Имитирует регистрацию в Партнерской сети Advertiser'ов и их Offer'ов
  */
 @Component
-public class AdvertiserGeneratorImpl implements AdvertiserGenerator{
+public class AdvertiserGeneratorImpl implements AdvertiserGenerator {
 
     private static final int MIN_COMMISSION = 2;
     private static final int MAX_COMMISSION = 40;

@@ -25,11 +25,11 @@ import java.util.Set;
 /**
  * Ildar Makhmutov
  * 08.08.2019.
+ * <p>
+ * Коллектор получающий статистику Sale'ов и сохраняющий ее в БД
  */
 @Component
 public class CollectorImpl implements Collector {
-
-    private static final Logger logger = LoggerFactory.getLogger(CollectorImpl.class);
 
     @Autowired
     private OfferRepository offerRepository;
@@ -44,13 +44,11 @@ public class CollectorImpl implements Collector {
     private CollectorRestTemplate collectorRestTemplate;
 
     /**
-     * Получение статистики продаж по всем Publisher'ам
+     * Получение статистики продаж (Sale) по всем Publisher'ам
      * зарегистрированным в Партнерской сети
      */
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public void collectAllSaleStatistic() {
-        logger.info("Start collect Publishers Statistic: {}", DateTimeUtil.DATE_TIME_FORMATTER.format(LocalDateTime.now()));
-
         List<Publisher> publishers = publisherRepository.findAll();
 
         for (Publisher publisher : publishers) {

@@ -1,6 +1,6 @@
 package com.data.collector.template;
 
-import com.data.advertiser.system.stub.generator.SalesGeneratorImpl;
+import com.data.advertiser.system.stub.storage.SalesResponseStorage;
 import com.data.collector.dto.SaleDto;
 import com.data.model.Advertiser;
 import com.data.model.ResponseDetail;
@@ -22,6 +22,11 @@ import java.util.List;
 /**
  * Ildar Makhmutov
  * 08.08.2019.
+ * <p>
+ * RestTemplate используемый Коллектором для получения статистики Offer'ов
+ * Имитирует вызов REST API Advertiser'а и получение Response'а
+ * Парсит Response и создает список SaleDto
+ * Поддерживает работу как со стандраным REST API, так и с кастомным
  */
 @Component
 public class CollectorRestTemplateImpl implements CollectorRestTemplate {
@@ -31,10 +36,17 @@ public class CollectorRestTemplateImpl implements CollectorRestTemplate {
     @Autowired
     private AdvertiserRepository advertiserRepository;
 
+    /**
+     * Получение статистики Sale'ов для Publisher'а
+     *
+     * @param statisticUrl  урл Advertiser'а для получения статистики Sale'ов
+     * @param publisherName имя Publisher'а для которого нужно получить статистику
+     * @return список Sale'ов для Publisher'а
+     */
     public List<SaleDto> getSaleStatistic(String statisticUrl, String publisherName) {
         List<SaleDto> saleDtos = new ArrayList<>();
 
-        String jsonSales = SalesGeneratorImpl.getSales(statisticUrl, publisherName);
+        String jsonSales = SalesResponseStorage.getJsonSalesResponse(statisticUrl, publisherName);
         if (jsonSales != null) {
             Advertiser advertiser = advertiserRepository.findByStatisticUrl(statisticUrl);
             ResponseDetail responseDetail = advertiser.getResponseDetail();

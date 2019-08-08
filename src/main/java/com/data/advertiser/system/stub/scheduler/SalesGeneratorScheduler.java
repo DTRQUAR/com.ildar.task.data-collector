@@ -19,4 +19,5 @@ public class SalesGeneratorScheduler {
     public void generateSalesScheduler() {
         salesGenerator.generateSales();
     }
+
 }
